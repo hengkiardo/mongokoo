@@ -22,3 +22,8 @@ OPTIONS:
 $ ./mongokoo -H localhost:27017  mongodb_db_name
 
 ```
+
+
+### TODO
+- file output should be using date of import
+- add parameter to exclude some collections
