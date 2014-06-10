@@ -31,7 +31,7 @@ $ ./mongokoo -H localhost:27017  mongodb_db_name
 
 ```shell
 
-$ ./mongokoo ./mongokoo.sh -l gust_tweet -H localhost:27017
+$ ./mongokoo.sh -l gust_tweet -H localhost:27017
 
 ```
 
