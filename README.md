@@ -23,7 +23,7 @@ OPTIONS:
 #### example export
 
 ```shell
-$ ./mongokoo -H localhost:27017  mongodb_db_name
+$ ./mongokoo.sh -H localhost:27017  mongodb_db_name
 
 ```
 
