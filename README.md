@@ -23,11 +23,11 @@ OPTIONS:
 #### example export
 
 ```shell
-$ ./mongokoo.sh -H localhost:27017  mongodb_db_name
+$ ./mongokoo.sh -H localhost:27017  gust_tweet
 
 ```
 
-#### example export
+#### example import/load mongodb backup
 
 ```shell
 
