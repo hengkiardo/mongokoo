@@ -72,6 +72,8 @@ echo "**** Password:  $PASSWORD"
 echo "**** Loading:   $LOADING"
 echo "*****************************************************************"
 
+now=$(date +"%Y-%m-%d-%S")
+
 if $LOADING ; then
     echo "Loading into $CONN"
     tar -xzf $DB.tar.gz
@@ -92,13 +94,16 @@ else
     pushd /tmp/$DB 2>/dev/null
 
     for collection in $DATABASE_COLLECTIONS; do
-        mongoexport --host $HOST $ARGS -db $DB -c $collection --jsonArray -o $collection.json >/dev/null
+
+        if [ $collection != 'system.indexes' ]; then
+            mongoexport --host $HOST $ARGS --db $DB -c $collection --jsonArray -o $collection.json >/dev/null
+        fi
     done
 
     pushd /tmp 2>/dev/null
-    tar -czf "$DB.tar.gz" $DB 2>/dev/null
+    tar -czf "$DB.$now.tar.gz" $DB 2>/dev/null
     popd 2>/dev/null
     popd 2>/dev/null
-    mv /tmp/$DB.tar.gz ./ 2>/dev/null
+    mv /tmp/$DB.$now.tar.gz ./ 2>/dev/null
     rm -rf /tmp/$DB 2>/dev/null
 fi
